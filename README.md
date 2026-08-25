@@ -49,21 +49,13 @@ docker run -d --name chatbot-assistant-service --restart always \
   chatbot-assistant-service
 ```
 
-### CI/CD con GitHub Actions
+### CI con GitHub Actions
 
 `.github/workflows/docker.yml` hace, en cada push/PR a `main` o `develop`:
 
-1. **build** — instala dependencias, corre `npm run build` (valida que compile), y en push a `main`/`develop` construye y publica la imagen en GitHub Container Registry (`ghcr.io/<owner>/<repo>`), taggeada por rama, por SHA corto, y como `latest` solo en `main`. En Pull Requests solo construye (no publica), como validación de CI.
-2. **deploy** — solo corre en push a `main`, y solo si el secreto `SSH_HOST` está configurado (si no, el job simplemente se salta, sin romper el pipeline). Se conecta por SSH al servidor y hace `docker pull` + `docker run` de la imagen `:latest`.
+- Instala dependencias y corre `npm run build` (valida que compile).
+- En push a `main`/`develop` (no en PRs), construye y publica la imagen en GitHub Container Registry: `ghcr.io/<owner>/<repo>` en minúsculas, taggeada por rama, por SHA corto, y como `latest` solo en `main`.
 
-Para activar el paso de deploy, configura en **Settings → Secrets and variables → Actions** del repo:
+No hace falta configurar ningún secreto de registro: usa el `GITHUB_TOKEN` que Actions provee automáticamente (con `permissions: packages: write` a nivel de job). El repo debe tener habilitado "Read and write permissions" para `GITHUB_TOKEN` en Settings → Actions → General → Workflow permissions.
 
-**Secrets:**
-- `SSH_HOST`, `SSH_USER`, `SSH_PRIVATE_KEY` — acceso SSH al servidor destino (`SSH_PORT` opcional, default 22).
-- `OPENAI_API_KEY`, `OPENAI_API_KEY_FALLBACK` (opcional) — se inyectan como variables de entorno del contenedor en el servidor.
-
-**Variables (opcionales, tienen default):**
-- `CHATBOT_PORT` — puerto host/contenedor a usar (default `4011`).
-- `ALLOWED_ORIGINS` — orígenes CORS permitidos en producción.
-
-No hace falta configurar credenciales de registro: la publicación a GHCR usa el `GITHUB_TOKEN` que Actions provee automáticamente. El repo debe tener habilitado "Read and write permissions" para `GITHUB_TOKEN` en Settings → Actions → General (o dejar el `permissions: packages: write` del workflow, que ya lo declara a nivel de job).
+El despliegue en el servidor (`docker pull` + `docker compose up`) se hace manualmente — ver la sección de despliegue en servidor más abajo.
