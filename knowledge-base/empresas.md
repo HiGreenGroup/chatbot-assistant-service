@@ -16,4 +16,4 @@ EmpleoServicio ofrece distintos planes para empresas, desde un plan gratuito has
 Desde tu panel de empresa puedes editar la información del perfil empresarial: descripción, sector, sitio web, ubicación, beneficios y redes sociales, entre otros datos.
 
 ## ¿Cómo contacto al equipo de soporte para empresas?
-Puedes escribir a info@empleoservicio.com, llamar al (809) 807-1008, o contactar por WhatsApp al +1 (809) 697-5684 para recibir soporte personalizado sobre tu cuenta empresarial o tus vacantes publicadas.
+Puedes escribir a asistencia@empleoservicio.com para recibir soporte personalizado sobre tu cuenta empresarial o tus vacantes publicadas.

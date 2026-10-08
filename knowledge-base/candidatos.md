@@ -3,6 +3,9 @@
 ## ¿Cómo me postulo a un empleo?
 Para postularte a un empleo debes crear una cuenta de candidato, completar tu perfil (datos personales, experiencia, educación y habilidades) y, opcionalmente, subir tu CV. Luego busca la oferta que te interese y usa el botón de postularte dentro del detalle de la vacante. Puedes ver el estado de tus postulaciones desde tu panel de candidato.
 
+## ¿Puedo registrarme como candidato por WhatsApp?
+Sí. EmpleoServicio tiene un asistente de registro para candidatos por WhatsApp en el +1 (809) 697-5684. Escríbele y te guiará para crear tu cuenta de candidato. Ese número es solo para el registro de candidatos; para soporte o problemas con tu cuenta escribe a asistencia@empleoservicio.com.
+
 ## ¿Cómo completo mi perfil de candidato?
 Desde tu panel de candidato puedes editar tu biografía, agregar experiencias laborales, formación académica, habilidades, ubicación y enlaces (como LinkedIn o portafolio). También puedes subir o actualizar tu CV. Un perfil completo aumenta tus posibilidades de que las empresas te encuentren y evalúen mejor tu postulación.
 
@@ -16,4 +19,4 @@ En tu panel de candidato encontrarás la sección de postulaciones, donde se lis
 Sí, además del uso gratuito básico, existe un plan premium para candidatos con beneficios adicionales para destacar el perfil ante las empresas.
 
 ## ¿Cómo edito o elimino mi cuenta de candidato?
-Puedes gestionar los datos de tu cuenta desde tu panel de perfil. Si necesitas eliminar tu cuenta o tienes un problema con tus datos, puedes escribir a info@empleoservicio.com o al (809) 807-1008 para que el equipo de soporte te ayude.
+Puedes gestionar los datos de tu cuenta desde tu panel de perfil. Si necesitas eliminar tu cuenta o tienes un problema con tus datos, puedes escribir a asistencia@empleoservicio.com para que el equipo de soporte te ayude.
