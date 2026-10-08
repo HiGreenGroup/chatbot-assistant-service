@@ -55,3 +55,43 @@ El resultado incluye:
 
 Historial de todos los intentos de test realizados, con posibilidad de
 exportar a CSV y gestionar reintentos.
+
+## ¿Qué tipos de tests puedo usar?
+
+- **Tests clásicos** (con respuesta correcta): sirven para conocimientos
+  técnicos del puesto, razonamiento, idiomas, situaciones de trabajo, etc.
+  La empresa define el tema al crearlos con IA o a mano.
+- **Tests DISC** (personalidad): miden Dominancia, Influencia, Estabilidad y
+  Cumplimiento.
+- Tests **compartidos del sistema** disponibles en la biblioteca (se pueden
+  usar, pero no editar ni eliminar).
+
+## ¿Cuándo conviene asignar un test?
+
+- A candidatos **preseleccionados** o con buena clasificación de puntaje,
+  para no saturar a quienes no van a avanzar.
+- **DISC** cuando el ajuste de personalidad/estilo de trabajo es importante
+  (atención al cliente, liderazgo, ventas).
+- **Tests técnicos o de idiomas** cuando el puesto requiere una habilidad
+  que conviene comprobar (por ejemplo, inglés para recepción).
+- No hace falta asignar todos los tests a todos: elige según el puesto.
+
+## ¿Los tests tienen costo adicional?
+
+No hay cobro por test publicado. El acceso a Tests IA viene incluido en los
+planes **Básico MiPyme, Premium, Reclutador y Enterprise**. No hay un límite
+mensual de tests publicado por plan; cada test define su propio **número
+máximo de intentos** por candidato.
+
+## ¿Qué recibo cuando un candidato completa un test?
+
+En "Ver resultados" del candidato ves su calificación y el detalle de la
+evaluación. En **Comparar candidatos** puedes pedir a la IA un ranking,
+una recomendación escrita y un gráfico de radar por dimensión entre dos o
+más candidatos. En **Envíos** tienes el historial de intentos, exportable a
+CSV.
+
+## ¿Puedo asignar un test a muchos candidatos a la vez?
+
+No. Los tests se asignan **candidato por candidato** desde "Asignar e
+invitar".

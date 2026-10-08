@@ -59,3 +59,47 @@ Además de las acciones anteriores, esta pantalla muestra:
 - El listado completo de candidatos que aplicaron a esa vacante, con todas
   las acciones de gestión del pipeline (ver
   [Gestionar candidatos](./05-gestionar-candidatos.md)).
+
+## ¿Cuándo pausar y cuándo cerrar una vacante?
+
+- **Pausa** cuando esperas retomar la búsqueda: presupuesto pendiente de
+  aprobación, ya tienes suficientes candidatos para evaluar por ahora, o
+  necesitas liberar un cupo de vacante activa temporalmente. Los candidatos
+  que ya aplicaron se conservan y puedes seguir gestionándolos.
+- **Cierra** cuando el proceso terminó: ya contrataste, se canceló la
+  búsqueda o el puesto cambió tanto que conviene publicar uno nuevo.
+
+## ¿Puedo reabrir una vacante cerrada?
+
+No. Cerrar una vacante es **definitivo** y no se puede deshacer. Si
+necesitas volver a buscar para ese puesto, usa **Duplicar** sobre la vacante
+cerrada para crear una nueva con los mismos datos (respetando el límite de
+vacantes activas de tu plan). Si solo quieres detenerla un tiempo, usa
+**Pausar** en vez de cerrar.
+
+## ¿Existe "archivar" o "borrador" como estado?
+
+No hay un estado "Archivada". Los estados son **Activa**, **Pausada** y
+**Cerrada**. Una vacante **guardada como borrador** queda en estado
+**Pausada** hasta que la actives.
+
+## ¿Qué ven los candidatos según el estado?
+
+- **Activa**: aparece en búsquedas y acepta postulaciones.
+- **Pausada**: deja de mostrarse a los candidatos; no recibe postulaciones
+  nuevas.
+- **Cerrada**: el proceso terminó; los no seleccionados reciben un email de
+  cierre.
+
+## Cómo cerrar una vacante paso a paso
+
+1. Ve a **Ofertas de Trabajo** (`/company/jobs`).
+2. Entra a **Gestionar** la vacante.
+3. Usa **Cerrar vacante** y confirma. Recuerda: no se puede deshacer.
+4. Los candidatos no seleccionados reciben automáticamente el email de
+   cierre.
+
+## Buscar vacantes en el listado
+
+En **Ofertas de Trabajo** hay un buscador por título o ubicación y la lista
+muestra el estado de cada vacante.

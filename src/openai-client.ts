@@ -1,5 +1,6 @@
 import OpenAI from "openai";
 import { config } from "./config";
+import { ChatTurn } from "./session-store";
 
 interface ClientEntry {
     label: string;
@@ -51,28 +52,65 @@ async function executeWithFallback<T>(operation: (client: OpenAI) => Promise<T>)
     throw lastError instanceof Error ? lastError : new Error(String(lastError));
 }
 
-export async function createEmbedding(text: string): Promise<number[]> {
+/** Genera embeddings para varios textos en una sola llamada (la API acepta hasta 2048 entradas). */
+export async function createEmbeddings(texts: string[]): Promise<number[][]> {
     try {
         const response = await executeWithFallback((client) =>
-            client.embeddings.create({ model: config.embeddingModel, input: text }),
+            client.embeddings.create({ model: config.embeddingModel, input: texts }),
         );
-        return response.data[0].embedding;
+        return response.data.sort((a, b) => a.index - b.index).map((item) => item.embedding);
     } catch (error) {
-        throw new Error(`Error al generar embedding: ${getErrorMessage(error)}`);
+        throw new Error(`Error al generar embeddings: ${getErrorMessage(error)}`);
     }
 }
 
-export async function createChatCompletion(contentSystem: string, contentUser: string): Promise<string> {
+const CHAT_PARAMS = {
+    temperature: 0.2,
+    max_tokens: 700,
+};
+
+function buildMessages(contentSystem: string, contentUser: string, history: ChatTurn[]) {
+    return [
+        { role: "system" as const, content: contentSystem },
+        // Turnos anteriores de la conversación, sin el contexto de la KB que se usó en cada uno.
+        ...history.map((turn) => ({ role: turn.role, content: turn.content })),
+        { role: "user" as const, content: contentUser },
+    ];
+}
+
+/**
+ * Igual que createChatCompletion pero entrega el texto a medida que se genera.
+ * El fallback de clave solo aplica al abrir el stream: si falla a mitad de
+ * respuesta ya se enviaron fragmentos al usuario y no se reintenta.
+ */
+export async function* streamChatCompletion(contentSystem: string, contentUser: string, history: ChatTurn[] = []): AsyncGenerator<string> {
+    let stream;
+    try {
+        stream = await executeWithFallback((client) =>
+            client.chat.completions.create({
+                model: config.chatModel,
+                messages: buildMessages(contentSystem, contentUser, history),
+                ...CHAT_PARAMS,
+                stream: true,
+            }),
+        );
+    } catch (error) {
+        throw new Error(`Error en la generación de respuesta de chat: ${getErrorMessage(error)}`);
+    }
+
+    for await (const chunk of stream) {
+        const delta = chunk.choices[0]?.delta?.content;
+        if (delta) yield delta;
+    }
+}
+
+export async function createChatCompletion(contentSystem: string, contentUser: string, history: ChatTurn[] = []): Promise<string> {
     try {
         const completion = await executeWithFallback((client) =>
             client.chat.completions.create({
                 model: config.chatModel,
-                messages: [
-                    { role: "system", content: contentSystem },
-                    { role: "user", content: contentUser },
-                ],
-                temperature: 0.2,
-                max_tokens: 700,
+                messages: buildMessages(contentSystem, contentUser, history),
+                ...CHAT_PARAMS,
             }),
         );
 

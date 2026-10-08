@@ -14,7 +14,10 @@ npm run build && npm start   # producción
 El servicio expone:
 
 - `POST /chat` — recibe `{ message, sessionId?, context: { role, userId?, pathname?, pageLabel?, jobId?, candidateId? } }` y responde `{ reply, sources }`. Los campos de pantalla se usan para dar contexto al modelo y priorizar documentos de la Knowledge Base (ver `Manual Integracion Pantalla EmpleoServicio.md` y `src/page-context.ts`).
+- `POST /chat/stream` — mismo body que `/chat`, pero responde con Server-Sent Events para mostrar la respuesta a medida que se genera: un evento `sources` (`{ sources }`), varios `delta` (`{ text }`, se concatenan) y al final `done` o `error` (`{ error }`). Se consume con `fetch` leyendo `response.body` (no con `EventSource`, que solo admite GET).
 - `GET /health` — chequeo de salud.
+
+Si el request trae `sessionId`, el servicio guarda en memoria las últimas 5 preguntas/respuestas de esa conversación (`src/session-store.ts`; expira tras 30 min de inactividad y se pierde al reiniciar) y las usa tanto para generar la respuesta como para la búsqueda en la Knowledge Base. Contrato completo para el frontend en `GUIA-FRONTEND.md`.
 
 ## Knowledge Base
 

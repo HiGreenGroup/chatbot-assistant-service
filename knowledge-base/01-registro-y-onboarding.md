@@ -62,3 +62,32 @@ La empresa puede editar en cualquier momento:
   de solo lectura del perfil se muestran como **texto**, no como links
   clicables — la empresa no necesita "entrar" a su propia red social desde
   ahí, ya tiene acceso directo a ella por su cuenta.
+
+## Datos que se piden al registrar una empresa (resumen)
+
+| Campo | ¿Obligatorio? | Nota |
+|---|---|---|
+| Nombre de la empresa | Sí | 2–100 caracteres |
+| Sector | Sí | De la lista de sectores de la plataforma |
+| RNC / número fiscal | Sí | Solo dígitos, máximo 9 |
+| Cantidad de empleados | Sí | Por rango |
+| Email | Sí | Recibe el código OTP y las comunicaciones de la cuenta |
+| Teléfono | No | Si se llena, debe ser un teléfono dominicano válido |
+| Contraseña | Sí | Mín. 8 caracteres con mayúscula, minúscula, número y símbolo |
+| Aceptar términos y privacidad | Sí | Checkbox obligatorio |
+
+El **logo**, la descripción, el sitio web y las redes sociales se completan
+después, desde el perfil de la empresa.
+
+## ¿Cuánto tarda el registro?
+
+Unos pocos minutos: llenar el formulario, ingresar el código OTP que llega
+por email y elegir un plan. Con el plan Gratis la cuenta queda activa de
+inmediato; con un plan de pago con tarjeta, en cuanto se completa el pago;
+con transferencia bancaria, la activación del plan espera la confirmación
+manual del comprobante.
+
+## ¿Puedo tener varios usuarios en la cuenta de mi empresa?
+
+Hoy no. Cada cuenta de empresa tiene un solo acceso; la gestión de equipo
+todavía no está disponible. Ver [Equipo y permisos](./13-equipo-y-permisos.md).

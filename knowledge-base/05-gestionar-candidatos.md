@@ -81,3 +81,42 @@ Además de cerrar la vacante en sí (ver
 [Gestionar vacantes](./04-gestionar-vacantes.md)), existe la acción de
 **cerrar el proceso**, que marca a la vez a todos los candidatos de esa
 vacante como "finalizado".
+
+## ¿Existe una Shortlist o listas de favoritos de candidatos?
+
+No como función separada. La forma de llevar una "lista corta" hoy es usar
+el propio **proceso de selección** de cada vacante: **Preseleccionar** a los
+candidatos que te interesan y luego filtrar la lista por ese estado. Las
+**notas del reclutador** sirven para marcar comentarios ("llamar mañana",
+"excelente presentación").
+
+No existen: listas personalizadas con nombre, marcar favoritos, compartir
+listas, ni exportar una shortlist a Excel.
+
+## ¿Existe un "pool" de todos los candidatos de la empresa?
+
+No hay una pantalla única con todos los candidatos de todas las vacantes, ni
+búsquedas guardadas, ni filtros avanzados por idioma, años de experiencia o
+educación. Los candidatos se ven **por vacante**, en su gestión. Para ver
+qué tan bien encaja cada uno, usa el
+[puntaje de compatibilidad](./09-match-score.md) y la elegibilidad.
+
+## ¿Puedo buscar candidatos que no se postularon a mi vacante?
+
+No. Una empresa trabaja con los candidatos que **se postularon** a sus
+vacantes. Para atraer más candidatos: comparte la vacante en tus redes
+sociales y por WhatsApp, márcala como **destacada** si tu plan lo permite y
+revisa que los requisitos sean realistas.
+
+## Orden sugerido para revisar candidatos
+
+1. Mira primero la **elegibilidad** (descarta o valida a los "no elegibles").
+2. Ordena tu atención por **clasificación del puntaje** (Excelente, Alto,
+   Medio...).
+3. Abre la **vista rápida** para revisar CV, fortalezas, brechas y datos por
+   validar.
+4. **Preselecciona** a los que vas a avanzar y **descarta** con motivo a los
+   que no.
+5. Asigna un **Test IA** o una evaluación externa si el puesto lo requiere.
+6. **Agenda entrevistas** y califícalas con la rúbrica.
+7. **Selecciona** al candidato elegido y, al terminar, **cierra la vacante**.

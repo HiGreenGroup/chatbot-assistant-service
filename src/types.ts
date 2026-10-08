@@ -12,7 +12,8 @@ const optionalContextString = z.string().nullish().catch(undefined);
 
 export const ChatRequestSchema = z.object({
     message: z.string().trim().min(1, "message no puede estar vacío"),
-    sessionId: z.string().optional(),
+    // Tolerante: un sessionId inválido solo desactiva el historial, no rechaza el mensaje.
+    sessionId: z.string().trim().min(1).max(128).optional().catch(undefined),
     context: z.object({
         role: z.enum(CHAT_ROLES),
         userId: optionalContextString,

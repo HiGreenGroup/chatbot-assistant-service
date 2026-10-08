@@ -2,7 +2,7 @@ import { ChatContext } from "./types";
 
 /**
  * Contexto de pantalla que manda el widget del frontend (ver
- * integracion-asistente-contexto-pagina.md). Todos los valores vienen del
+ * "Manual Integracion Pantalla EmpleoServicio.md"). Todos los valores vienen del
  * navegador sin firmar: se usan solo como pista para el prompt y el retrieval,
  * nunca para autorizar nada.
  */
@@ -24,16 +24,18 @@ const MAX_ID_LENGTH = 64;
  * coinciden con ningún patrón simplemente no priorizan nada.
  */
 const PAGE_DOC_PATTERNS: { pattern: RegExp; sources: string[] }[] = [
-    { pattern: /^\/company\/jobs\/[^/]+\/manage$/, sources: ["05-gestionar-candidatos", "04-gestionar-vacantes"] },
+    { pattern: /^\/company\/jobs\/[^/]+\/manage$/, sources: ["05-gestionar-candidatos", "04-gestionar-vacantes", "09-match-score", "10-entrevistas-y-calendario"] },
     { pattern: /^\/company\/jobs\/[^/]+\/tests$/, sources: ["06-tests-ia"] },
     { pattern: /^\/company\/jobs(\/[^/]+(\/(edit|detail))?)?$/, sources: ["04-gestionar-vacantes"] },
     { pattern: /^\/company\/publish$/, sources: ["03-publicar-vacante"] },
     { pattern: /^\/company\/candidates\/[^/]+\/tests$/, sources: ["06-tests-ia"] },
     { pattern: /^\/company\/candidates\/compare$/, sources: ["05-gestionar-candidatos", "06-tests-ia"] },
-    { pattern: /^\/company\/candidates\/[^/]+$/, sources: ["05-gestionar-candidatos"] },
+    { pattern: /^\/company\/candidates\/[^/]+$/, sources: ["05-gestionar-candidatos", "09-match-score"] },
     { pattern: /^\/company\/tests$/, sources: ["06-tests-ia"] },
     { pattern: /^\/company\/(plans|check-out)$/, sources: ["02-planes-y-precios"] },
-    { pattern: /^\/company(\/(profile|employees))?$/, sources: ["01-registro-y-onboarding"] },
+    { pattern: /^\/company\/employees$/, sources: ["13-equipo-y-permisos"] },
+    { pattern: /^\/company(\/profile)?$/, sources: ["01-registro-y-onboarding", "08-panel-y-navegacion"] },
+    { pattern: /^\/interviews$/, sources: ["10-entrevistas-y-calendario"] },
     { pattern: /^\/user(\/.*)?$/, sources: ["candidatos"] },
 ];
 

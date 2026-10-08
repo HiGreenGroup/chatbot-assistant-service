@@ -90,3 +90,28 @@ publicación pre-llenado con todos los datos (incluida la rúbrica) de una
 vacante ya existente, para que la empresa solo tenga que ajustar lo que
 cambie en vez de empezar de cero. También respeta el límite de vacantes
 activas del plan.
+
+## Buenas prácticas para escribir una vacante efectiva
+
+- **Título específico**: "Recepcionista bilingüe" funciona mejor que
+  "Personal administrativo". El título también es lo que usa "Generar con
+  IA".
+- **Responsabilidades claras**: 5–7 puntos principales, sin jerga interna.
+- **Requisitos realistas**: pide solo la experiencia, títulos e idiomas
+  realmente necesarios. Pedir de más baja el puntaje de compatibilidad de
+  candidatos que sí podrían hacer el trabajo (ver
+  [Match score](./09-match-score.md)).
+- **Habilidades bien elegidas**: son una parte importante del cálculo del
+  puntaje de compatibilidad.
+- **Salario**: indicar un rango (aunque decidas no mostrarlo públicamente)
+  ayuda a filtrar expectativas; mostrarlo suele atraer más postulaciones.
+- **Beneficios**: menciona lo que te diferencia (capacitación, transporte,
+  comida, crecimiento).
+- **Revisa ortografía y redacción** antes de publicar.
+- **Configura la rúbrica** de entrevista desde el inicio, para calificar a
+  todos los candidatos con los mismos criterios.
+
+## ¿Cuánto tarda en verse una vacante publicada?
+
+Al publicar, la vacante queda **activa de inmediato** y visible para los
+candidatos.

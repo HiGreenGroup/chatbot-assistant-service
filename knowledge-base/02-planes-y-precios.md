@@ -65,3 +65,40 @@ para los planes Básico MiPyme, Premium, Reclutador y Enterprise. El plan
 Gratis **no** tiene acceso; si una empresa en plan gratis intenta entrar, ve
 una pantalla explicando que necesita mejorar su plan, con un botón para ver
 los planes disponibles.
+
+## ¿Hay período de prueba gratis?
+
+No hay una "prueba de 14 días". Lo que existe es el **plan Gratis**
+(permanente, 1 vacante activa). Además, en los planes **Gratis** y **Básico
+MiPyme** algunas funciones de planes superiores se pueden usar durante un
+**período de prueba de 30 días**, y luego se desactivan si la empresa no
+sube de plan.
+
+## ¿Qué pasa si llego al límite de vacantes activas?
+
+No puedes publicar ni activar otra vacante hasta que **pauses o cierres**
+alguna de las activas, o **subas de plan**. La plataforma muestra un aviso
+con el límite y un botón para ver los planes. Las vacantes pausadas no
+cuentan como activas.
+
+## ¿Hay costos adicionales fuera del plan?
+
+No hay cobros sueltos publicados por test, por usuario adicional ni por
+integraciones. Lo que incluye cada plan está en la tabla de arriba; para
+necesidades fuera de esos límites existe el plan **Enterprise** a medida.
+No inventes precios: los montos vigentes de cada plan se ven en
+`/company/plans` o en el checkout.
+
+## ¿Los planes limitan la cantidad de candidatos?
+
+No. Los planes limitan **vacantes activas** y **vacantes destacadas**, y
+habilitan funciones (Tests IA, WhatsApp, panel de reclutamiento). No hay un
+tope publicado de candidatos que pueden postularse a una vacante.
+
+## ¿El cambio de plan es inmediato?
+
+- **Subir de plan** con tarjeta: se aplica al confirmar el pago.
+- **Pago por transferencia**: queda pendiente hasta que el equipo confirme
+  el comprobante.
+- **Bajar al plan Gratis (cancelar)**: conservas el plan actual hasta el
+  final del período pagado.
