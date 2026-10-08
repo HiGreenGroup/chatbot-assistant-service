@@ -1,9 +1,11 @@
 import { createChatCompletion, createEmbedding } from "./openai-client";
 import { searchKnowledgeBase } from "./knowledge-base";
-import { ChatResponse, ChatRole } from "./types";
+import { buildPageContextInstruction, extractPageContext, getPrioritySources } from "./page-context";
+import { ChatContext, ChatResponse, ChatRole } from "./types";
 
 const BASE_INSTRUCTION = `Eres el Asistente Virtual de EmpleoServicio, una plataforma que conecta candidatos con empresas.
 Responde utilizando únicamente la información proporcionada en el contexto recuperado de la Knowledge Base. Si la información necesaria no está disponible en el contexto, indica claramente que no cuentas con esa información y sugiere contactar a asistencia@empleoservicio.com. No inventes datos.
+Si un dato del contexto está marcado con "⚠️ verificar", no lo presentes como un hecho confirmado.
 Responde siempre en español, de forma clara, breve y amable.`;
 
 const ROLE_INSTRUCTIONS: Record<ChatRole, string> = {
@@ -32,12 +34,20 @@ function buildUserPrompt(
 
 export async function answerQuestion(
   message: string,
-  role: ChatRole,
+  context: ChatContext,
 ): Promise<ChatResponse> {
-  const questionEmbedding = await createEmbedding(message);
-  const results = searchKnowledgeBase(questionEmbedding, role);
+  const { role } = context;
+  const page = extractPageContext(context);
 
-  const contentSystem = `${BASE_INSTRUCTION}\n\n${ROLE_INSTRUCTIONS[role]}`;
+  const questionEmbedding = await createEmbedding(message);
+  const results = searchKnowledgeBase(questionEmbedding, role, {
+    prioritySources: getPrioritySources(page),
+  });
+
+  const pageInstruction = buildPageContextInstruction(page, role === "anonymous");
+  const contentSystem = [BASE_INSTRUCTION, ROLE_INSTRUCTIONS[role], pageInstruction]
+    .filter(Boolean)
+    .join("\n\n");
   const contentUser = buildUserPrompt(message, results);
 
   const reply = await createChatCompletion(contentSystem, contentUser);

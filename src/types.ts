@@ -3,16 +3,28 @@ import { z } from "zod";
 export const CHAT_ROLES = ["candidate", "company", "anonymous"] as const;
 export type ChatRole = (typeof CHAT_ROLES)[number];
 
+/**
+ * Campo de contexto opcional y tolerante: si llega con un tipo inválido se
+ * descarta (undefined) en vez de rechazar el request, para que un cambio en el
+ * frontend nunca rompa el chat.
+ */
+const optionalContextString = z.string().nullish().catch(undefined);
+
 export const ChatRequestSchema = z.object({
     message: z.string().trim().min(1, "message no puede estar vacío"),
     sessionId: z.string().optional(),
     context: z.object({
         role: z.enum(CHAT_ROLES),
-        userId: z.string().optional(),
+        userId: optionalContextString,
+        pathname: optionalContextString,
+        pageLabel: optionalContextString,
+        jobId: optionalContextString,
+        candidateId: optionalContextString,
     }),
 });
 
 export type ChatRequest = z.infer<typeof ChatRequestSchema>;
+export type ChatContext = ChatRequest["context"];
 
 export interface ChatSource {
     id: string;

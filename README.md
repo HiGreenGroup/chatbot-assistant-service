@@ -13,7 +13,7 @@ npm run build && npm start   # producción
 
 El servicio expone:
 
-- `POST /chat` — recibe `{ message, sessionId?, context: { role, userId? } }` y responde `{ reply, sources }`. Ver el brief del proyecto para el contrato completo.
+- `POST /chat` — recibe `{ message, sessionId?, context: { role, userId?, pathname?, pageLabel?, jobId?, candidateId? } }` y responde `{ reply, sources }`. Los campos de pantalla se usan para dar contexto al modelo y priorizar documentos de la Knowledge Base (ver `integracion-asistente-contexto-pagina.md` y `src/page-context.ts`).
 - `GET /health` — chequeo de salud.
 
 ## Knowledge Base

@@ -33,7 +33,7 @@ async function main() {
             }
 
             const { message, context } = parsed.data;
-            const result = await answerQuestion(message, context.role);
+            const result = await answerQuestion(message, context);
 
             res.json(result);
         } catch (error) {
