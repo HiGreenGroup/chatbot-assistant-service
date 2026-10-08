@@ -1,0 +1,24 @@
+# Cada ambiente (beta, producción) es una carpeta en el servidor con este
+# archivo y su propio .env al lado (ver .env.example). Desde esa carpeta:
+#
+#   docker compose pull && docker compose up -d
+#
+# Docker Compose lee el .env automáticamente: lo usa para resolver IMAGE_TAG,
+# HOST_PORT y COMPOSE_PROJECT_NAME, y env_file lo pasa entero al contenedor.
+
+services:
+  chatbot:
+    image: ghcr.io/higreengroup/chatbot-assistant-service:${IMAGE_TAG:?Falta IMAGE_TAG en .env}
+    restart: always
+    ports:
+      - "${HOST_PORT:?Falta HOST_PORT en .env}:4011"
+    env_file: .env
+    environment:
+      # Puerto interno fijo; el que cambia por ambiente es HOST_PORT.
+      PORT: 4011
+    volumes:
+      # Conserva el cache de embeddings entre reinicios para no regenerarlos en cada deploy.
+      - embeddings-cache:/app/knowledge-base/.cache
+
+volumes:
+  embeddings-cache:
